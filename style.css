@@ -1,0 +1,99 @@
+/* Tìm hiểu vẩn vơ — tông chung của bacxiunong.com: tím xám hoàng hôn, chữ sáng */
+:root{
+  --ink:#16131f; --dusk:#2b2638; --haze:#6b6480; --mist:#a59fb5; --glow:#f3e9dc; --sun:#ffd9a8;
+  --east:#e7b98a; --west:#9fb4e6;
+  --card:rgba(255,255,255,.06); --card-hover:rgba(255,255,255,.1); --line:rgba(243,233,220,.14);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--glow);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;
+  background:radial-gradient(120% 70% at 50% 0%,#5a5168 0%,var(--dusk) 40%,var(--ink) 100%) fixed var(--ink)}
+a{color:var(--sun)}
+
+/* Menu chung */
+.site-nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:20px;padding:0 16px;min-height:48px;
+  overflow-x:auto;white-space:nowrap;background:rgba(22,19,31,.82);backdrop-filter:saturate(180%) blur(16px);
+  -webkit-backdrop-filter:saturate(180%) blur(16px);font-size:13px;letter-spacing:.02em;border-bottom:1px solid var(--line)}
+.site-nav a{color:rgba(243,233,220,.72);text-decoration:none;padding:6px 0}
+.site-nav a:hover,.site-nav a[aria-current="page"]{color:var(--glow)}
+.site-nav a[aria-current="page"]{box-shadow:inset 0 -2px 0 var(--glow)}
+.site-nav .site-brand{color:var(--glow);font-weight:600;margin-right:auto;letter-spacing:.04em}
+:focus-visible{outline:2px solid var(--sun);outline-offset:2px;border-radius:6px}
+
+.hero{max-width:980px;margin:0 auto;padding:72px 20px 36px;text-align:center}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+.hero h1{font-family:var(--font-display);font-weight:600;font-size:clamp(34px,6vw,56px);line-height:1.07;letter-spacing:-.01em;margin:8px 0 12px}
+.lead{font-size:clamp(17px,2.4vw,21px);color:var(--mist);max-width:620px;margin:0 auto}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 60px;display:grid;gap:24px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column}
+.stat-num{font-family:var(--font-display);font-size:34px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat-label{font-size:13px;color:var(--mist)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.panel h2{font-family:var(--font-display);font-size:21px;font-weight:600}
+
+/* Dòng thời gian */
+.timeline{position:relative;margin:22px 8px 0;border-top:1px dashed var(--line)}
+.tl-dot{position:absolute;transform:translateX(-6px);margin-top:10px;display:flex;align-items:center;gap:6px;background:none;border:0;
+  color:var(--glow);font:inherit;font-size:12px;cursor:pointer;white-space:nowrap;transition:opacity .2s}
+.tl-dot::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--west);box-shadow:0 0 0 3px rgba(159,180,230,.2);flex:none}
+.tl-dot.east::before{background:var(--east);box-shadow:0 0 0 3px rgba(231,185,138,.2)}
+.tl-dot:hover .tl-name{color:var(--sun)}
+.tl-dot.dim{opacity:.22}
+.tl-axis{position:relative;height:22px;margin:4px 8px 0;border-top:1px solid var(--line)}
+.tick{position:absolute;transform:translateX(-50%);top:4px;font-size:11px;color:var(--mist);white-space:nowrap}
+
+/* Bộ lọc */
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.toolbar h2{margin-right:auto}
+.chips{display:flex;gap:6px}
+.chip{background:transparent;border:1px solid var(--line);color:var(--glow);border-radius:999px;padding:7px 14px;font:inherit;font-size:14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--glow);color:var(--ink);border-color:var(--glow)}
+.select,.search{background:rgba(0,0,0,.25);border:1px solid var(--line);color:var(--glow);border-radius:12px;padding:8px 12px;font:inherit;font-size:14px}
+.search{min-width:220px;flex:1}
+.search::placeholder{color:var(--haze)}
+.count{font-size:13px;color:var(--mist);margin:14px 0 10px}
+
+/* Thẻ */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{text-align:left;font:inherit;color:inherit;background:rgba(0,0,0,.18);border:1px solid var(--line);border-radius:16px;padding:18px;cursor:pointer;
+  display:flex;flex-direction:column;gap:6px;transition:transform .2s,background .2s}
+.card:hover{background:var(--card-hover);transform:translateY(-2px)}
+.card-top{display:flex;justify-content:space-between;gap:8px;font-size:12px}
+.badge{border-radius:999px;padding:2px 10px;font-weight:600;color:var(--ink);background:var(--west)}
+.badge.east{background:var(--east)}
+.era{color:var(--mist)}
+.card h3{font-family:var(--font-display);font-size:20px;font-weight:600;margin-top:6px}
+.origin{font-size:13px;color:var(--mist)}
+.q{font-size:15px;line-height:1.45;margin:4px 0 8px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.tag{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:2px 9px;color:var(--mist)}
+
+/* Chi tiết */
+.detail{margin:auto;max-width:560px;width:calc(100% - 32px);border:1px solid var(--line);border-radius:22px;padding:28px;
+  background:linear-gradient(180deg,#332d42,#1d1928);color:var(--glow);box-shadow:0 40px 100px rgba(0,0,0,.6)}
+.detail::backdrop{background:rgba(10,8,16,.6);backdrop-filter:blur(4px)}
+.detail h2{font-family:var(--font-display);font-size:30px;font-weight:600;margin-top:6px}
+.detail h3{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin:20px 0 8px}
+.d-origin{color:var(--mist);font-size:14px}
+.d-question{margin-top:18px;padding-left:14px;border-left:3px solid var(--sun);font-size:18px;line-height:1.45}
+.detail ul{padding-left:20px;display:grid;gap:6px}
+.detail .tags{margin-top:16px}
+.close{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--mist);font-size:28px;line-height:1;cursor:pointer}
+
+.foot{text-align:center;font-size:12px;color:var(--haze);padding:0 20px 40px}
+
+@media (max-width:640px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .hero{padding-top:48px}
+  .tl-name{display:none}
+  .toolbar h2{width:100%}
+  .search{min-width:0;width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+@media (max-width:520px){.site-nav{gap:16px}.site-nav .site-brand{display:none}.site-nav a:nth-child(2){margin-left:auto}}

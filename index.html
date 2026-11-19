@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tìm hiểu vẩn vơ · Mr. Nobody</title>
+<meta name="description" content="Dashboard nhỏ về các trường phái triết học Đông và Tây: câu hỏi trung tâm, ý chính, người đại diện.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="site-nav" aria-label="Menu chính">
+  <a class="site-brand" href="/">Mr. Nobody</a>
+  <a href="/">Giới thiệu</a>
+  <a href="/game-dap-chuot/">Game đập chuột</a>
+  <a href="/tim-hieu-van-vo/" aria-current="page">Tìm hiểu vẩn vơ</a>
+</nav>
+
+<header class="hero">
+  <p class="eyebrow">Tìm hiểu vẩn vơ</p>
+  <h1>Các trường phái triết học</h1>
+  <p class="lead">Mỗi trường phái là một cách trả lời câu hỏi: sống thế nào cho đáng.</p>
+</header>
+
+<main class="wrap">
+  <section class="stats" aria-label="Tổng quan">
+    <div class="stat"><span class="stat-num" id="st-total">0</span><span class="stat-label">trường phái</span></div>
+    <div class="stat"><span class="stat-num" id="st-east">0</span><span class="stat-label">phương Đông</span></div>
+    <div class="stat"><span class="stat-num" id="st-west">0</span><span class="stat-label">phương Tây</span></div>
+    <div class="stat"><span class="stat-num" id="st-span">0</span><span class="stat-label">năm suy tư</span></div>
+  </section>
+
+  <section class="panel" aria-labelledby="tl-title">
+    <h2 id="tl-title">Dòng thời gian</h2>
+    <div class="timeline" id="timeline" role="list"></div>
+    <div class="tl-axis" id="tl-axis" aria-hidden="true"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="list-title">
+    <div class="toolbar">
+      <h2 id="list-title">Khám phá</h2>
+      <div class="chips" role="group" aria-label="Lọc theo khu vực">
+        <button type="button" class="chip" data-khuvuc="" aria-pressed="true">Tất cả</button>
+        <button type="button" class="chip" data-khuvuc="Đông" aria-pressed="false">Phương Đông</button>
+        <button type="button" class="chip" data-khuvuc="Tây" aria-pressed="false">Phương Tây</button>
+      </div>
+      <select id="f-era" class="select" aria-label="Lọc theo thời kỳ">
+        <option value="">Mọi thời kỳ</option>
+        <option>Cổ đại</option><option>Trung đại</option><option>Cận đại</option><option>Hiện đại</option>
+      </select>
+      <input id="f-q" class="search" type="search" placeholder="Tìm: tự do, hạnh phúc, Camus…" aria-label="Tìm kiếm">
+    </div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="cards" id="cards"></div>
+  </section>
+</main>
+
+<dialog id="detail" class="detail" aria-labelledby="d-title">
+  <button type="button" class="close" id="d-close" aria-label="Đóng">×</button>
+  <p class="eyebrow" id="d-meta"></p>
+  <h2 id="d-title"></h2>
+  <p class="d-origin" id="d-origin"></p>
+  <blockquote class="d-question" id="d-question"></blockquote>
+  <h3>Ý chính</h3>
+  <ul id="d-ideas"></ul>
+  <h3>Người tiêu biểu</h3>
+  <p id="d-people"></p>
+  <div class="tags" id="d-tags"></div>
+</dialog>
+
+<footer class="foot">Nội dung tóm tắt, viết lại để tìm hiểu cho vui — không thay thế việc đọc tác phẩm gốc.</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
